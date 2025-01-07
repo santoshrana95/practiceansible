@@ -3,14 +3,14 @@
   become: yes
   tasks:
     - name: Create a new user
-      ansible-built-in.user:
+      ansible.builtin.user:
         name: "{{ centos }}"
         state: present
         groups: "{{ centos }}"
         append: yes
         shell: /bin/bash
     - name: Add autobhan principal
-      ansible-built-in.lineinfile:
+      ansible.builtin.lineinfile:
         path: /etc/ssh/authoized_keys/centos
         line: "bsdcore-xcloud.bsdcore-poc.bsdcorepoc"
         create: yes
