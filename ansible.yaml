@@ -4,9 +4,9 @@
   tasks:
     - name: Create a new user
       ansible.builtin.user:
-        name: "{{ centos }}"
+        name: centos
         state: present
-        groups: "{{ centos }}"
+        groups: centos
         append: yes
         shell: /bin/bash
     - name: Add autobhan principal
