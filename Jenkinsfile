@@ -4,7 +4,7 @@ pipeline {
         stage ('Checkout') {
             steps {
                 git branch: 'main' , 
-                    url: 'https://github.com/santoshrana95/practiceansible.git'
+                    url: 'https://github.com/santoshrana95/practiceansible.git' ,
                     credentialsId: 'ansible-ssh-key'
             }
         }
