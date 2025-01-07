@@ -6,7 +6,6 @@
       ansible.builtin.user:
         name: centos
         state: present
-        groups: centos
         append: yes
         shell: /bin/bash
     - name: Add autobhan principal
