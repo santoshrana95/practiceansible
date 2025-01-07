@@ -1,0 +1,22 @@
+---
+- hosts: app
+  become: yes
+  tasks:
+    - name: Create a new user
+      ansible-built-in.user:
+        name: "{{ centos }}"
+        state: present
+        groups: "{{ centos }}"
+        append: yes
+        shell: /bin/bash
+    - name: Add autobhan principal
+      ansible-built-in.lineinfile:
+        path: /etc/ssh/authoized_keys/centos
+        line: "bsdcore-xcloud.bsdcore-poc.bsdcorepoc"
+        create: yes
+        mode: 0644
+    - name: Update sudoers file for sudo access to bxtsreadm
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers
+        line: "bxtsreadm ALL = (ALL) NOPASSWD:ALL"
+        validate: "visudo -cf %s"
